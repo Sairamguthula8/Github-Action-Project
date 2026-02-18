@@ -136,9 +136,13 @@ jobs:
 
       - name: Start Minikube
         run: |
-           export HOME=$RUNNER_TEMP
-           minikube start --driver=docker
-           kubectl get nodes
+         minikube delete || true
+         minikube start \
+         --driver=docker \
+         --memory=1800mb \
+         --cpus=1 \
+         --wait=all
+          kubectl get nodes
       
       
 
