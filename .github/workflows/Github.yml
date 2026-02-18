@@ -119,6 +119,10 @@ jobs:
         push: true
         tags: sairamguthula/demoapp
         file: ./Dockerfile
+  kubernetes:
+    runs-on: self-hosted
+    needs: buils_docker_image_and_push
+    steps:
     - uses: actions/checkout@master
     - name: Setup Minikube
       id: minikube
