@@ -143,7 +143,7 @@ jobs:
          --cpus=2 \
          --wait=all
           kubectl get nodes
-          kubectl apply -f ds.yaml
+          kubectl apply -f ds.yml
       
       
 
