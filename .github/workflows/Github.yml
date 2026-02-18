@@ -140,7 +140,7 @@ jobs:
          minikube start \
          --driver=docker \
          --memory=1800mb \
-         --cpus=1 \
+         --cpus=2 \
          --wait=all
           kubectl get nodes
       
