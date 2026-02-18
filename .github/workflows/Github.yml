@@ -123,19 +123,18 @@ jobs:
     runs-on: self-hosted
     needs: buils_docker_image_and_push
     steps:
-    - uses: actions/checkout@master
-    - uses: opsgang/ga-setup-minikube@v0.1.1
-      with:
-        minikube-version: 1.4.0
-        k8s-version: 1.15.1
-    - name: Testing
-      run: |
-        minikube config set vm-driver docker
-        minikube config set kubernetes-version v1.15.1
-        minikube start
-        minikube update-context
-        kubectl cluster-info
-        kubectl get pods -n kube-system
+      - uses: actions/checkout@v4
+
+      - name: Install Minikube
+        run: |
+          curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+          sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+      - name: Start Minikube
+        run: |
+          minikube start --driver=docker
+          kubectl cluster-info
+          kubectl get nodes
       
       
 
