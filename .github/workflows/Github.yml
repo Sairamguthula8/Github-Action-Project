@@ -132,9 +132,9 @@ jobs:
 
       - name: Start Minikube
         run: |
-          minikube start --driver=docker
-          kubectl cluster-info
-          kubectl get nodes
+           export HOME=$RUNNER_TEMP
+           minikube start --driver=docker
+           kubectl get nodes
       
       
 
