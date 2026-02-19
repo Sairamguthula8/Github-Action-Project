@@ -42,19 +42,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bankapp
+  name: demoapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bankapp
+      app: demoapp
   template:
     metadata:
       labels:
-        app: bankapp
+        app: demoapp
     spec:
       containers:
-      - name: bankapp
+      - name: demoapp
         image: sairamguthula/demoapp:latest
         ports:
         - containerPort: 8080
